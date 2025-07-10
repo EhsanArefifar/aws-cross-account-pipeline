@@ -13,7 +13,7 @@ resource "aws_iam_role" "codepipeline_cross_account" {
         Effect = "Allow"
         Sid    = ""
         Principal = {
-          AWS = "arn:aws:iam::${var.tooling_account_id}:root" # Source Account Root User
+          "AWS" : "arn:aws:iam::${var.tooling_account_id}:root" # Source Account Root User
         }
       },
     ]
@@ -38,7 +38,7 @@ resource "aws_iam_role" "cloudformation_deployment" {
         Effect = "Allow"
         Sid    = ""
         Principal = {
-          Service: "cloudformation.amazonaws.com"
+          "Service" : "cloudformation.amazonaws.com"
         }
       },
     ]

@@ -4,7 +4,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.0"
+      version = "~> 6.0"
     }
   }
 }
@@ -29,7 +29,7 @@ variable "project_name" {
 #Phase 1: Deploy roles without policies
 
 module "iam_roles" {
-    source = "../../modules/iam-roles/main.tf"
+    source = "../../modules/iam-roles"
 
     tooling_account_id = var.tooling_account_id
     project_name = var.project_name
@@ -42,6 +42,6 @@ output "codepipeline_role_arn" {
     value = module.iam_roles.codepipeline_role_arn  
 }
 
-output "cloudformation_deployment" {
+output "cloudformation_role_arn" {
     value = module.iam_roles.cloudformation_role_arn  
 }

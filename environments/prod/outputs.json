@@ -1,0 +1,12 @@
+{
+  "cloudformation_role_arn": {
+    "sensitive": false,
+    "type": "string",
+    "value": "arn:aws:iam::471112683391:role/CloudFormationDeploymentRole"
+  },
+  "codepipeline_role_arn": {
+    "sensitive": false,
+    "type": "string",
+    "value": "arn:aws:iam::471112683391:role/CodePipelineCrossAccountRole"
+  }
+}

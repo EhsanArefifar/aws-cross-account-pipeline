@@ -11,11 +11,13 @@ variable "project_name" {
 variable "artifact_bucket_name" {
     description = "ARN of the artifact bucket (provided after pipeline creation)"  
     type = string
+    default = ""
 }
 
 variable "kms_key_arn" {
     description = "ARN of the KMS key (provided after pipeline creation)"
-    type = string  
+    type = string
+    default = ""
 }
 
 variable "create_policies" {

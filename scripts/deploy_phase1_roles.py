@@ -10,7 +10,7 @@ def run_command(cmd, cwd=None, capture_output=False):
     """
     Run a shell command and handle errors.
     """
-    print(f" ➡️ Running {' '.join(cmd)}")
+    print(f" ➡️  Running {' '.join(cmd)}")
     try:
         if capture_output:
             result = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, check=True)
@@ -33,11 +33,11 @@ def deploy_environment(env_name):
     env_path = Path(f"environments/{env_name}")
 
     #Initialize Terraform
-    print(f" ➡️ Initializing Terraform...")
+    print(f" ➡️  Initializing Terraform...")
     run_command(["terraform", "init"], cwd=env_path)
 
     # Plan
-    print("  ➡️ Planning changes...")
+    print(" ➡️  Planning changes...")
     run_command([
         "terraform", "plan",
         "-var-file=../../terraform.tfvars",
@@ -45,11 +45,11 @@ def deploy_environment(env_name):
     ], cwd=env_path)
     
     # Apply
-    print("  ➡️ Applying changes...")
+    print(" ➡️  Applying changes...")
     run_command(["terraform", "apply", "tfplan"], cwd=env_path)
 
     # Capture outputs
-    print("  ➡️ Capturing outputs...")
+    print(" ➡️  Capturing outputs...")
     outputs_json = run_command([
         "terraform", "output", "-json"
     ], cwd=env_path, capture_output=True)
@@ -64,12 +64,12 @@ def deploy_environment(env_name):
 
 
 def main():
-    print(f"🚀 Starting Phase 1> Deploying IAM roles without Policies")
+    print(f"🚀 Starting Phase 1: Deploying IAM roles without Policies")
     print("=" * 55)
 
     #check prerequisites
     if not Path("terraform.tfvars").exists():
-        print(f"❌ Error: Terraform.tfvars not found")
+        print(f"❌ Error: terraform.tfvars not found")
         sys.exit(1)
     
     # Deploy to prod environment
