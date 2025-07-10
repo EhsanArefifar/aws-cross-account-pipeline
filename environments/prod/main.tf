@@ -1,0 +1,47 @@
+terraform {
+  required_version = ">= 1.0"
+  
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+}
+
+provider "aws" {
+  region  = var.region
+  profile = "prod"
+}
+
+variable "tooling_account_id" {
+  type = string
+}
+
+variable "region" {
+  type = string
+}
+
+variable "project_name" {
+  type = string
+}
+
+#Phase 1: Deploy roles without policies
+
+module "iam_roles" {
+    source = "../../modules/iam-roles/main.tf"
+
+    tooling_account_id = var.tooling_account_id
+    project_name = var.project_name
+
+    # Phase 1: Don't create policies yet
+    create_policies = false
+}
+
+output "codepipeline_role_arn" {
+    value = module.iam_roles.codepipeline_role_arn  
+}
+
+output "cloudformation_deployment" {
+    value = module.iam_roles.cloudformation_role_arn  
+}
