@@ -1,6 +1,6 @@
 # Replace with your actual account IDs
-tooling_account_id = "851725535698"
-prod_account_id    = "905418218028"
+tooling_account_id = "730335606929"
+prod_account_id    = "767397833358"
 
 region       = "us-east-1"
 project_name = "cross-account-demo"

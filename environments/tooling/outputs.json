@@ -1,0 +1,27 @@
+{
+  "artifact_bucket_arn": {
+    "sensitive": false,
+    "type": "string",
+    "value": "arn:aws:s3:::cross-account-demo-artifacts-730335606929"
+  },
+  "artifact_bucket_name": {
+    "sensitive": false,
+    "type": "string",
+    "value": "cross-account-demo-artifacts-730335606929"
+  },
+  "kms_key_arn": {
+    "sensitive": false,
+    "type": "string",
+    "value": "arn:aws:kms:us-east-1:730335606929:key/6324d244-f2e1-4b01-818a-38d25a7fdb44"
+  },
+  "pipeline_name": {
+    "sensitive": false,
+    "type": "string",
+    "value": "cross-account-demo-pipeline"
+  },
+  "repository_clone_url": {
+    "sensitive": false,
+    "type": "string",
+    "value": "https://git-codecommit.us-east-1.amazonaws.com/v1/repos/cross-account-demo-app"
+  }
+}
